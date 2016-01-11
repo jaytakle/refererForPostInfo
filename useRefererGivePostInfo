@@ -1,0 +1,17 @@
+
+<script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js"></script>
+
+<script>
+var referer = "d78f16e9-b9f7-4a30-9bcf-c1ddc0f72268";
+var api = "https://rest.sqor.com/posts/" + referer;
+queue()
+    .defer(d3.json, api)
+    .await(getAuth);
+    
+    function getAuth(error,jsonApi){
+    var dataSet = jsonApi;
+    var id = dataSet.author;//dataSet.media[0].link;
+    alert(id);
+    }
+</script>
